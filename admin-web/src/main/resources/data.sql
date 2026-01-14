@@ -9,3 +9,10 @@ INSERT INTO customers (customer_id, name, contact_name, email, phone) values (RA
 INSERT INTO orders (order_id, customer_id, order_info) values (RANDOM_UUID(), (SELECT customer_id FROM customers where name = 'Acme'), '1500 Widgets');
 INSERT INTO orders (order_id, customer_id, order_info) values (RANDOM_UUID(), (SELECT customer_id FROM customers where name = 'Acme'), '3000 Widgets');
 INSERT INTO orders (order_id, customer_id, order_info) values (RANDOM_UUID(), (SELECT customer_id FROM customers where name = 'Callahan Auto'), '200 Widgets');
+
+INSERT INTO users (username, password, enabled) values ('user', '{bcrypt}$2a$10$fpf1oIOBIH2c.k4HwBqbLe4EnXeL9il7b6rnUB9CWdE8MNp3yQyfK', true);
+INSERT INTO users (username, password, enabled) values ('admin', '{bcrypt}$2a$10$fpf1oIOBIH2c.k4HwBqbLe4EnXeL9il7b6rnUB9CWdE8MNp3yQyfK', true);
+
+INSERT INTO authorities (username, authority) values ('user', 'ROLE_USER');
+INSERT INTO authorities (username, authority) values ('admin', 'ROLE_USER');
+INSERT INTO authorities (username, authority) values ('admin', 'ROLE_ADMIN');
