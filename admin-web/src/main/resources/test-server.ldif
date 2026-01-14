@@ -1,0 +1,57 @@
+dn: dc=landon,dc=org
+objectclass: top
+objectclass: domain
+objectclass: extensibleObject
+dc: landon
+
+dn: ou=groups,dc=landon,dc=org
+objectclass: top
+objectclass: organizationalUnit
+ou: groups
+
+dn: ou=subgroups,ou=groups,dc=landon,dc=org
+objectclass: top
+objectclass: organizationalUnit
+ou: subgroups
+
+dn: ou=people,dc=landon,dc=org
+objectclass: top
+objectclass: organizationalUnit
+ou: people
+
+dn: uid=user,ou=people,dc=landon,dc=org
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: user
+sn: user
+uid: user
+userPassword: $2a$10$.isZ2ShLaoaEo6Ocd.KQzO5zp5CH8MQMXypMEXMTMWATCCq.gd1u2
+
+
+dn: uid=admin,ou=people,dc=landon,dc=org
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: admin
+sn: admin
+uid: admin
+userPassword: $2a$10$a613GJuZgYwrp9CHK7G1tObbWwwMjJjeEtJu9mx/UGyU1MxHcjtki
+
+
+dn: cn=admin,ou=groups,dc=landon,dc=org
+objectclass: top
+objectclass: groupOfUniqueNames
+cn: admin
+ou: admin
+uniqueMember: uid=admin,ou=people,dc=landon,dc=org
+
+dn: cn=user,ou=groups,dc=landon,dc=org
+objectclass: top
+objectclass: groupOfUniqueNames
+cn: user
+ou: user
+uniqueMember: uid=admin,ou=people,dc=landon,dc=org
+uniqueMember: uid=user,ou=people,dc=landon,dc=org

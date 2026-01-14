@@ -12,3 +12,18 @@ CREATE TABLE orders(
     order_info varchar (2048) not null,
     foreign key (customer_id) references customers(customer_id)
 );
+
+CREATE TABLE users (
+    username varchar_ignorecase(50) primary key,
+    password varchar_ignorecase(500) not null,
+    enabled boolean not null
+);
+
+CREATE TABLe authorities (
+    username varchar_ignorecase(50) not null,
+    authority varchar_ignorecase(50) not null,
+    foreign key(username) references users(username)
+);
+
+CREATE UNIQUE INDEX idx_auth_username on authorities (username,authority);
+
